@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdicionarTarefas.css';
 
-const AdicionarTarefas = ({ botao, eventoTeclado, cadastrar, obj }) => {
+const AdicionarTarefas = ({ botao, eventoTeclado, cadastrar, obj, cancelar, remover, alterar}) => {
     
     return (    
         <div>
@@ -14,9 +14,9 @@ const AdicionarTarefas = ({ botao, eventoTeclado, cadastrar, obj }) => {
                     <input type="button" value="Cadastrar" onClick={cadastrar} className="btn btn-primary"/>
                 ) : (
                     <div className='buttons'>
-                        <input type="button" value="Alterar" className='btn btn-warning'/>
-                        <input type="button" value="Cancelar" className='btn btn-secondary'/>
-                        <input type="button" value="Remover" className='btn btn-danger'/>
+                        <input type="button" value="Alterar"  onClick={alterar} className='btn btn-warning'/>
+                        <input type="button" value="Cancelar" onClick={cancelar} className='btn btn-secondary'/>
+                        <input type="button" value="Remover"  onClick={remover} className='btn btn-danger'/>
                     </div>
                 )}
             </div>

@@ -44,6 +44,61 @@ function App() {
     })
   }  
 
+  const alterar = () => {
+    fetch('http://localhost:8080/alterar',{
+      method:"put",
+      body:JSON.stringify(objTarefa),
+      headers:{
+        'Content-type':'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(tarefas => tarefas.json())
+    .then(tarefas_convertidas => {
+  
+      if (tarefas_convertidas.mensagem !== undefined){
+        alert(tarefas_convertidas.mensagem)
+      }else {
+        alert('Tarefa alterada com sucesso')
+  
+        let vetorTemp = [...tarefas];
+  
+      let indice = vetorTemp.findIndex((p) => {
+        return p.id === objTarefa.id;
+      });
+      vetorTemp[indice] = objTarefa
+      
+      setTarefas(vetorTemp);
+  
+      limparFormulario();
+      }
+    })
+  }
+
+  const remover = () => {
+    fetch('http://localhost:8080/remover/' + objTarefa.id,{
+      method:"delete",
+          headers:{
+        'Content-type':'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(tarefas => tarefas.json())
+    .then(tarefas_convertidas => {
+      alert(tarefas_convertidas.mensagem);
+  
+      let vetorTemp = [...tarefas];
+  
+      let indice = vetorTemp.findIndex((p) => {
+        return p.id === objTarefa.id;
+      });
+      vetorTemp.splice(indice, 1);
+
+      setTarefas(vetorTemp);
+
+      limparFormulario();
+    })}  
+  
   const limparFormulario = () => {
     setObjTarefa(tarefa);
     setBtnCadastrar(true);
@@ -54,7 +109,7 @@ function App() {
   }
   return (
     <div>
-      <AdicionarTarefas botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objTarefa}/>
+      <AdicionarTarefas botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objTarefa} cancelar={limparFormulario} remover={remover} alterar={alterar}/>
       <Tabela vetor={tarefas} selecionar={selecionarProduto}/>
     </div>
   )
