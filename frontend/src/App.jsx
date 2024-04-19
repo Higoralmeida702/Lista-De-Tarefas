@@ -4,6 +4,9 @@ import AdicionarTarefas from "./componentes/AdicionarTarefas";
 import TarefasConcluidas from "./componentes/TarefasConcluidas";
 import TarefasPendentes from "./componentes/TarefasPendentes";
 import './styles.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Tabela from "./componentes/tabela/Tabela";
+
 
 function App() {
   const [tarefas, setTarefas] = useState ([]);
