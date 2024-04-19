@@ -67,7 +67,7 @@ function App() {
         return p.id === objTarefa.id;
       });
       vetorTemp[indice] = objTarefa
-      
+
       setTarefas(vetorTemp);
   
       limparFormulario();
@@ -108,7 +108,7 @@ function App() {
     setBtnCadastrar(false);
   }
   return (
-    <div>
+    <div className="re">
       <AdicionarTarefas botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objTarefa} cancelar={limparFormulario} remover={remover} alterar={alterar}/>
       <Tabela vetor={tarefas} selecionar={selecionarProduto}/>
     </div>
