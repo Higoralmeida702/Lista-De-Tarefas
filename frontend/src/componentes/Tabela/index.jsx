@@ -1,4 +1,4 @@
-const Tabela = ({vetor}) => {
+const Tabela = ({vetor, selecionar}) => {
     return (
         <table className="table">
             <thead>
@@ -16,7 +16,7 @@ const Tabela = ({vetor}) => {
                         <td>{indice+1}</td>
                         <td>{obj.tarefa}</td>
                         <td>{obj.descricao}</td>
-                        <td><button className="btn btn-success">Selecionar</button></td>
+                        <td><button className="btn btn-success" onClick={() => {selecionar(indice)}}>Selecionar</button></td>
                     </tr>
                 ))
                }

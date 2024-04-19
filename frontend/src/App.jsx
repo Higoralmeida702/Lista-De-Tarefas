@@ -48,10 +48,14 @@ function App() {
     setObjTarefa(tarefa);
     setBtnCadastrar(true);
   }
+  const selecionarProduto = (indice) => {
+    setObjTarefa(tarefas[indice]);
+    setBtnCadastrar(false);
+  }
   return (
     <div>
       <AdicionarTarefas botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objTarefa}/>
-      <Tabela vetor={tarefas}/>
+      <Tabela vetor={tarefas} selecionar={selecionarProduto}/>
     </div>
   )
 }
