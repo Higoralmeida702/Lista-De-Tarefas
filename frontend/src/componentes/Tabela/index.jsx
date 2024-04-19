@@ -4,7 +4,7 @@ const Tabela = ({vetor, selecionar}) => {
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Nome</th>
+                    <th>Tarefa</th>
                     <th>Descricao</th>
                     <th>Selecionar</th>
                 </tr>
