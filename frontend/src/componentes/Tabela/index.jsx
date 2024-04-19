@@ -5,7 +5,7 @@ const Tabela = ({vetor}) => {
                 <tr>
                     <th>#</th>
                     <th>Nome</th>
-                    <th>Marca</th>
+                    <th>Descricao</th>
                     <th>Selecionar</th>
                 </tr>
             </thead>
